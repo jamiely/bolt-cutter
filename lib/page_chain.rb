@@ -1,5 +1,7 @@
 # Stores a chain of pages
 require 'mechanize'
+require 'readability'
+
 class PageChain
   def initialize(base_url)
     @pages = []
@@ -41,6 +43,15 @@ class PageChain
     end while not page.nil?
 
     @pages
+  end
+
+  def content
+    content_array = @pages.collect do |page|
+      doc = Readability::Document.new page.content
+      doc.content
+    end
+
+    content_array.join "\n"
   end
 
   private

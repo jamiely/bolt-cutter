@@ -14,5 +14,10 @@ url = ARGV[0]
 page_chain = PageChain.new url
 pages = page_chain.retrieve
 
+puts "<html><body>"
 puts "Number of pages: #{pages.length}"
 pages.each {|page| puts page.uri}
+puts "<h1>Content</h1><div>"
+puts page_chain.content
+puts "</div></body></html>"
+
