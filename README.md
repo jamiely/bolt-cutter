@@ -5,6 +5,8 @@ grabs the content into a single page.
 
 # Usage
 
+Page: [SPIN's 20 Best Photos of 2010](http://www.spin.com/gallery/spins-20-best-photos-2010+?page=1#main)
+
     > ruby main.rb "http://www.spin.com/gallery/spins-20-best-photos-2010+?page=1#main"
 
     Number of pages: 22
@@ -31,6 +33,8 @@ grabs the content into a single page.
     http://www.spin.com/gallery/spins-20-best-photos-2010+#main
     http://www.spin.com/gallery/spins-20-best-photos-2010+?page=1#main
 
+Page: [Ryan Gosling: Mr. Hot Shots of 2011](http://www.people.com/people/package/gallery/0,,20543425_20547825,00.html#21061464)
+
     > ruby main.rb "http://www.people.com/people/package/gallery/0,,20543425_20547825,00.html#21061464"
 
     Number of pages: 11
@@ -45,6 +49,8 @@ grabs the content into a single page.
     http://www.people.com/people/package/gallery/0,,20543425_20547825_21061460,00.html
     http://www.people.com/people/package/gallery/0,,20543425_20547825_21061457,00.html
     http://www.people.com/people/package/gallery/0,,20543425_20547825_11,00.html
+
+Page: [All-TIME 100 Albums](http://entertainment.time.com/2006/11/02/the-all-time-100-albums/#abbey-road)
 
     > ruby main.rb "http://entertainment.time.com/2006/11/02/the-all-time-100-albums/#abbey-road"
 
