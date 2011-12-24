@@ -10,12 +10,10 @@ class PageChain
   end
 
   def filter_links(links)
-    links.select {|link| /next/ =~ link.node.to_xml}
+    links.select {|link| /next/i =~ link.node.to_xml}
   end
 
   def retrieve
-    chainer = UrlChainer.new @agent, @url
-
     # get the base page
     page = get_page(@url)
     @pages = [page]
@@ -30,7 +28,9 @@ class PageChain
         key = first_link.uri.to_s
 
         # don't retrieve the page again if the URI is the same
-        unless prevent_cycles.key? key
+        if prevent_cycles.key? key
+          puts "Cycle encountered with key: #{key}"
+        else
           prevent_cycles[key] = TRUE
 
           puts "Retrieving #{key}"
@@ -58,8 +58,8 @@ class PageChain
   end
 end
 
-url = "http://www.spin.com/gallery/spins-20-best-photos-2010+?page=1#main"
-#url = "http://www.people.com/people/package/gallery/0,,20543425_20547825,00.html#21061464"
+#url = "http://www.spin.com/gallery/spins-20-best-photos-2010+?page=1#main"
+url = "http://www.people.com/people/package/gallery/0,,20543425_20547825,00.html#21061464"
 
 page_chain = PageChain.new url
 pages = page_chain.retrieve
