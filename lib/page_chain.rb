@@ -1,4 +1,5 @@
 # Stores a chain of pages
+require 'mechanize'
 class PageChain
   def initialize(base_url)
     @pages = []
